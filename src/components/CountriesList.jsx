@@ -26,17 +26,19 @@ function CountriesList() {
       <h3>Countries List</h3>
       {countries.length ? (
         <ul>
-          {countries.map(({ name, alpha2Code, alpha3Code }) => (
-            <li key={alpha3Code}>
-              <Link to={`/${alpha3Code}`}>
-                <img
-                  src={`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`}
-                  alt={`The flag of ${name.common}`}
-                />
-                <p>{name.common}</p>
-              </Link>
-            </li>
-          ))}
+          {[...countries]
+            .sort((a, b) => a.name.common.localeCompare(b.name.common))
+            .map(({ name, alpha2Code, alpha3Code }) => (
+              <li key={alpha3Code}>
+                <Link to={`/${alpha3Code}`}>
+                  <img
+                    src={`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`}
+                    alt={`The flag of ${name.common}`}
+                  />
+                  <p>{name.common}</p>
+                </Link>
+              </li>
+            ))}
         </ul>
       ) : (
         <h3>...loading</h3>
