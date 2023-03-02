@@ -23,7 +23,7 @@ function CountryDetails() {
   }, [id]);
 
   return (
-    <>
+    <div class="col-7">
       {country ? (
         <>
           <img
@@ -67,7 +67,7 @@ function CountryDetails() {
       ) : (
         <h2>...loading</h2>
       )}
-    </>
+    </div>
   );
 }
 

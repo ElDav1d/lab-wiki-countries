@@ -22,15 +22,17 @@ function CountriesList() {
   }, []);
 
   return (
-    <div>
-      <h3>Countries List</h3>
+    <div class="col-5">
       {countries.length ? (
-        <ul>
+        <ul class="list-group">
           {[...countries]
             .sort((a, b) => a.name.common.localeCompare(b.name.common))
             .map(({ name, alpha2Code, alpha3Code }) => (
               <li key={alpha3Code}>
-                <Link to={`/${alpha3Code}`}>
+                <Link
+                  class="list-group-item list-group-item-action"
+                  to={`/${alpha3Code}`}
+                >
                   <img
                     src={`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`}
                     alt={`The flag of ${name.common}`}

@@ -8,10 +8,14 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<CountriesList />} />
-        <Route path="/:id" element={<CountryDetails />} />
-      </Routes>
+      <div className="container">
+        <div className="row">
+          <CountriesList />
+          <Routes>
+            <Route path="/:id" element={<CountryDetails />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
