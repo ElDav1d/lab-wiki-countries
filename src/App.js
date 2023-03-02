@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import CountryDetails from './components/CountryDetails';
 import CountriesList from './components/CountriesList';
 import NavBar from './components/NavBar';
 
@@ -9,6 +10,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<CountriesList />} />
+        <Route path="/:id" element={<CountryDetails />} />
       </Routes>
     </div>
   );
